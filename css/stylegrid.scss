@@ -1,0 +1,308 @@
+.container {
+    display: grid;
+    grid-template-columns: 16.5% 16.5% 16.5% 16.5% 16.5% 16.5%;
+    grid-template-rows: 73px 73px 73px 73px 73px 73px;
+}
+
+.r1c1 {
+    grid-row-start: 1;
+    grid-column-start: 1;
+    border-right: 1px solid black;
+    border-top: 1px solid black;
+    cursor: pointer;
+    border-left: 1px solid black;
+}
+
+.r2c1 {
+    grid-row-start: 2;
+    grid-column-start: 1;
+    border-right: 1px solid black;
+    border-top: 1px solid black;
+    cursor: pointer;
+    border-left: 1px solid black;
+}
+
+.r3c1 {
+    grid-row-start: 3;
+    grid-column-start: 1;
+    border-right: 1px solid black;
+    border-top: 1px solid black;
+    cursor: pointer;
+    border-left: 1px solid black;
+}
+
+.r4c1 {
+    grid-row-start: 4;
+    grid-column-start: 1;
+    border-right: 1px solid black;
+    border-top: 1px solid black;
+    cursor: pointer;
+    border-left: 1px solid black;
+}
+
+.r5c1 {
+    grid-row-start: 5;
+    grid-column-start: 1;
+    border-right: 1px solid black;
+    border-top: 1px solid black;
+    cursor: pointer;
+    border-left: 1px solid black;
+}
+
+.r6c1 {
+    grid-row-start: 6;
+    grid-column-start: 1;
+    border-right: 1px solid black;
+    border-top: 1px solid black;
+    cursor: pointer;
+    border-bottom: 1px solid black;
+    border-left: 1px solid black;
+}
+
+.r1c2 {
+    grid-row-start: 1;
+    grid-column-start: 2;
+    border-right: 1px solid black;
+    border-top: 1px solid black;
+    cursor: pointer;
+}
+
+.r2c2 {
+    grid-row-start: 2;
+    grid-column-start: 2;
+    border-right: 1px solid black;
+    border-top: 1px solid black;
+    cursor: pointer;
+}
+
+.r3c2 {
+    grid-row-start: 3;
+    grid-column-start: 2;
+    border-right: 1px solid black;
+    border-top: 1px solid black;
+    cursor: pointer;
+}
+
+.r4c2 {
+    grid-row-start: 4;
+    grid-column-start: 2;
+    border-right: 1px solid black;
+    border-top: 1px solid black;
+    cursor: pointer;
+}
+
+.r5c2 {
+    grid-row-start: 5;
+    grid-column-start: 2;
+    border-right: 1px solid black;
+    border-top: 1px solid black;
+    cursor: pointer;
+}
+
+.r6c2 {
+    grid-row-start: 6;
+    grid-column-start: 2;
+    border-right: 1px solid black;
+    border-top: 1px solid black;
+    cursor: pointer;
+    border-bottom: 1px solid black;
+}
+
+.r1c3 {
+    grid-row-start: 1;
+    grid-column-start: 3;
+    border-right: 1px solid black;
+    border-top: 1px solid black;
+    cursor: pointer;
+}
+
+.r2c3 {
+    grid-row-start: 2;
+    grid-column-start: 3;
+    border-right: 1px solid black;
+    border-top: 1px solid black;
+    cursor: pointer;
+}
+
+.r3c3 {
+    grid-row-start: 3;
+    grid-column-start: 3;
+    border-right: 1px solid black;
+    border-top: 1px solid black;
+    cursor: pointer;
+}
+
+.r4c3 {
+    grid-row-start: 4;
+    grid-column-start: 3;
+    border-right: 1px solid black;
+    border-top: 1px solid black;
+    cursor: pointer;
+}
+
+.r5c3 {
+    grid-row-start: 5;
+    grid-column-start: 3;
+    border-right: 1px solid black;
+    border-top: 1px solid black;
+    cursor: pointer;
+}
+
+.r6c3 {
+    grid-row-start: 6;
+    grid-column-start: 3;
+    border-right: 1px solid black;
+    border-top: 1px solid black;
+    cursor: pointer;
+    border-bottom: 1px solid black;
+}
+
+.r1c4 {
+    grid-row-start: 1;
+    grid-column-start: 4;
+    border-right: 1px solid black;
+    border-top: 1px solid black;
+    cursor: pointer;
+}
+
+.r2c4 {
+    grid-row-start: 2;
+    grid-column-start: 4;
+    border-right: 1px solid black;
+    border-top: 1px solid black;
+    cursor: pointer;
+}
+
+.r3c4 {
+    grid-row-start: 3;
+    grid-column-start: 4;
+    border-right: 1px solid black;
+    border-top: 1px solid black;
+    cursor: pointer;
+}
+
+.r4c4 {
+    grid-row-start: 4;
+    grid-column-start: 4;
+    border-right: 1px solid black;
+    border-top: 1px solid black;
+    cursor: pointer;
+}
+
+.r5c4 {
+    grid-row-start: 5;
+    grid-column-start: 4;
+    border-right: 1px solid black;
+    border-top: 1px solid black;
+    cursor: pointer;
+}
+
+.r6c4 {
+    grid-row-start: 6;
+    grid-column-start: 4;
+    border-right: 1px solid black;
+    border-top: 1px solid black;
+    cursor: pointer;
+    border-bottom: 1px solid black;
+}
+
+.r1c5 {
+    grid-row-start: 1;
+    grid-column-start: 5;
+    border-right: 1px solid black;
+    border-top: 1px solid black;
+    cursor: pointer;
+}
+
+.r2c5 {
+    grid-row-start: 2;
+    grid-column-start: 5;
+    border-right: 1px solid black;
+    border-top: 1px solid black;
+    cursor: pointer;
+}
+
+.r3c5 {
+    grid-row-start: 3;
+    grid-column-start: 5;
+    border-right: 1px solid black;
+    border-top: 1px solid black;
+    cursor: pointer;
+}
+
+.r4c5 {
+    grid-row-start: 4;
+    grid-column-start: 5;
+    border-right: 1px solid black;
+    border-top: 1px solid black;
+    cursor: pointer;
+}
+
+.r5c5 {
+    grid-row-start: 5;
+    grid-column-start: 5;
+    border-right: 1px solid black;
+    border-top: 1px solid black;
+    cursor: pointer;
+}
+
+.r6c5 {
+    grid-row-start: 6;
+    grid-column-start: 5;
+    border-right: 1px solid black;
+    border-top: 1px solid black;
+    cursor: pointer;
+    border-bottom: 1px solid black;
+}
+
+.r1c6 {
+    grid-row-start: 1;
+    grid-column-start: 6;
+    border-right: 1px solid black;
+    border-top: 1px solid black;
+    cursor: pointer;
+}
+
+.r2c6 {
+    grid-row-start: 2;
+    grid-column-start: 6;
+    border-right: 1px solid black;
+    border-top: 1px solid black;
+    cursor: pointer;
+}
+
+.r3c6 {
+    grid-row-start: 3;
+    grid-column-start: 6;
+    border-right: 1px solid black;
+    border-top: 1px solid black;
+    cursor: pointer;
+}
+
+.r4c6 {
+    grid-row-start: 4;
+    grid-column-start: 6;
+    border-right: 1px solid black;
+    border-top: 1px solid black;
+    cursor: pointer;
+}
+
+.r5c6 {
+    grid-row-start: 5;
+    grid-column-start: 6;
+    border-right: 1px solid black;
+    border-top: 1px solid black;
+    cursor: pointer;
+}
+
+.r6c6 {
+    grid-row-start: 6;
+    grid-column-start: 6;
+    border-right: 1px solid black;
+    border-top: 1px solid black;
+    cursor: pointer;
+    border-bottom: 1px solid black;
+}
+
+
+/*# sourceMappingURL=stylegrid.scss.map */

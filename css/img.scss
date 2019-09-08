@@ -1,0 +1,9 @@
+@for $i from 1 through 18 {
+    .img#{$i} {
+        background: url("../img/#{$i}.jpg");
+        background-size: 100%;
+        width: 100%;
+        height: 100%;
+        background-repeat: no-repeat;
+    }
+}

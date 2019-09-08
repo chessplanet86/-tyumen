@@ -1,0 +1,271 @@
+<!-- v-show не удаляет, использовать v-show, иначе не удастся унаследовать -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Тестовое задание. Игра. Тюмень</title>
+    <link rel="stylesheet" href="./css/stylegrid.css">
+    <link rel="stylesheet" href="./css/img.css">
+    <link rel="stylesheet" href="./css/main.css">
+    <link rel="stylesheet" href="./css/successful.css">
+    <link rel="stylesheet" href="./css/modal.css">
+
+</head>
+
+<body>
+    <div id='app'>
+        <modal v-if="showModal" @close="showModal = false">
+            <h3 slot="header">Данные об игроке</h3>
+            <div slot="body">
+                <div name='playerData'>
+                    <h5>Имя:</h5>
+                    <input type="text" v-model='player' style="margin: 10px">
+                </div>
+                <div v-if="error">{{error}}</div>
+            </div>
+            <div slot="footer">
+                <button @click="startGame">Начать игру</button>
+                <button @click="closeModal">Закрыть</button>
+            </div>
+        </modal>
+        {{time}} {{checkPair}} {{saveTime}} {{sortRaitings}}
+        <div class="inl">
+            <h1>Игра "Найди пару"</h1>
+
+            <button @click="openModal" v-if="hidenButtonStart">Начать игру</button>
+            <button @click="openModal" v-if="!hidenButtonStart">Начать заново</button>
+            <h3 v-if="statusStart==1">Игра началась!</h3>
+            <h5>Длительность игры: {{hours}}:{{minutes}}:{{seconds}}</h5>
+            <h5 v-if="countOpenCards==1">Через {{fiveSec}} карточка закроется</h5>
+        </div>
+
+        <div class="inl">
+            <div class="container">
+                <template name="row1">
+                    <div class="r1c1" @click="openCard($event, 0)">
+                        <div :class="pairImg[0]" v-show="h0"></div>
+                        <div class="successfuly" v-show="s0"></div>
+                    </div>
+                    <div class="r1c2" @click="openCard($event, 1)">
+                        <div :class="pairImg[1]" v-show="h1"></div>
+                        <div class="successfuly" v-show="s1"> </div>
+                    </div>
+                    <div class="r1c3" @click="openCard($event, 2)">
+                        <div :class="pairImg[2]" v-show="h2"></div>
+                        <div class="successfuly" v-show="s2"> </div>
+                    </div>
+                    <div class="r1c4" @click="openCard($event, 3)">
+                        <div :class="pairImg[3]" v-show="h3"></div>
+                        <div class="successfuly" v-show="s3"> </div>
+                    </div>
+                    <div class="r1c5" @click="openCard($event, 4)">
+                        <div :class="pairImg[4]" v-show="h4"></div>
+                        <div class="successfuly" v-show="s4"> </div>
+                    </div>
+                    <div class="r1c6" @click="openCard($event, 5)">
+                        <div :class="pairImg[5]" v-show="h5"></div>
+                        <div class="successfuly" v-show="s5"> </div>
+                    </div>
+                </template>
+
+                <template name="row2">
+                    <div class="r2c1" @click="openCard($event, 6)">
+                        <div :class="pairImg[6]" v-show="h6"></div>
+                        <div class="successfuly" v-show="s6"> </div>
+                    </div>
+                    <div class="r2c2" @click="openCard($event, 7)">
+                        <div :class="pairImg[7]" v-show="h7"></div>
+                        <div class="successfuly" v-show="s7"> </div>
+                    </div>
+                    <div class="r2c3" @click="openCard($event, 8)">
+                        <div :class="pairImg[8]" v-show="h8"></div>
+                        <div class="successfuly" v-show="s8"> </div>
+                    </div>
+                    <div class="r2c4" @click="openCard($event, 9)">
+                        <div :class="pairImg[9]" v-show="h9"></div>
+                        <div class="successfuly" v-show="s9"> </div>
+                    </div>
+                    <div class="r2c5" @click="openCard($event, 10)">
+                        <div :class="pairImg[10]" v-show="h10"></div>
+                        <div class="successfuly" v-show="s10"> </div>
+                    </div>
+                    <div class="r2c6" @click="openCard($event, 11)">
+                        <div :class="pairImg[11]" v-show="h11"></div>
+                        <div class="successfuly" v-show="s11"> </div>
+                    </div>
+                </template>
+
+                <template name="row3">
+                    <div class="r3c1" @click="openCard($event, 12)">
+                        <div :class="pairImg[12]" v-show="h12"></div>
+                        <div class="successfuly" v-show="s12"> </div>
+                    </div>
+                    <div class="r3c2" @click="openCard($event, 13)">
+                        <div :class="pairImg[13]" v-show="h13"></div>
+                        <div class="successfuly" v-show="s13"> </div>
+                    </div>
+                    <div class="r3c3" @click="openCard($event, 14)">
+                        <div :class="pairImg[14]" v-show="h14"></div>
+                        <div class="successfuly" v-show="s14"> </div>
+                    </div>
+                    <div class="r3c4" @click="openCard($event, 15)">
+                        <div :class="pairImg[15]" v-show="h15"></div>
+                        <div class="successfuly" v-show="s15"> </div>
+                    </div>
+                    <div class="r3c5" @click="openCard($event, 16)">
+                        <div :class="pairImg[16]" v-show="h16"></div>
+                        <div class="successfuly" v-show="s16"> </div>
+                    </div>
+                    <div class="r3c6" @click="openCard($event, 17)">
+                        <div :class="pairImg[17]" v-show="h17"></div>
+                        <div class="successfuly" v-show="s17"> </div>
+                    </div>
+                </template>
+
+                <template name="row4">
+                    <div class="r4c1" @click="openCard($event, 18)">
+                        <div :class="pairImg[18]" v-show="h18"></div>
+                        <div class="successfuly" v-show="s18"> </div>
+                    </div>
+                    <div class="r4c2" @click="openCard($event, 19)">
+                        <div :class="pairImg[19]" v-show="h19"></div>
+                        <div class="successfuly" v-show="s19"> </div>
+                    </div>
+                    <div class="r4c3" @click="openCard($event, 20)">
+                        <div :class="pairImg[20]" v-show="h20"></div>
+                        <div class="successfuly" v-show="s20"> </div>
+                    </div>
+                    <div class="r4c4" @click="openCard($event, 21)">
+                        <div :class="pairImg[21]" v-show="h21"></div>
+                        <div class="successfuly" v-show="s21"> </div>
+                    </div>
+                    <div class="r4c5" @click="openCard($event, 22)">
+                        <div :class="pairImg[22]" v-show="h22"></div>
+                        <div class="successfuly" v-show="s22"> </div>
+                    </div>
+                    <div class="r4c6" @click="openCard($event, 23)">
+                        <div :class="pairImg[23]" v-show="h23"></div>
+                        <div class="successfuly" v-show="s23"> </div>
+                    </div>
+                </template>
+
+                <template name="row5">
+                    <div class="r5c1" @click="openCard($event, 24)">
+                        <div :class="pairImg[24]" v-show="h24"></div>
+                        <div class="successfuly" v-show="s24"> </div>
+                    </div>
+                    <div class="r5c2" @click="openCard($event, 25)">
+                        <div :class="pairImg[25]" v-show="h25"></div>
+                        <div class="successfuly" v-show="s25"> </div>
+                    </div>
+                    <div class="r5c3" @click="openCard($event, 26)">
+                        <div :class="pairImg[26]" v-show="h26"></div>
+                        <div class="successfuly" v-show="s26"> </div>
+                    </div>
+                    <div class="r5c4" @click="openCard($event, 27)">
+                        <div :class="pairImg[27]" v-show="h27"></div>
+                        <div class="successfuly" v-show="s27"> </div>
+                    </div>
+                    <div class="r5c5" @click="openCard($event, 28)">
+                        <div :class="pairImg[28]" v-show="h28"></div>
+                        <div class="successfuly" v-show="s28"> </div>
+                    </div>
+                    <div class="r5c6" @click="openCard($event, 29)">
+                        <div :class="pairImg[29]" v-show="h29"></div>
+                        <div class="successfuly" v-show="s29"> </div>
+                    </div>
+                </template>
+
+                <template name="row6">
+                    <div class="r6c1" @click="openCard($event, 30)">
+                        <div :class="pairImg[30]" v-show="h30"></div>
+                        <div class="successfuly" v-show="s30"> </div>
+                    </div>
+                    <div class="r6c2" @click="openCard($event, 31)">
+                        <div :class="pairImg[31]" v-show="h31"></div>
+                        <div class="successfuly" v-show="s31"> </div>
+                    </div>
+                    <div class="r6c3" @click="openCard($event, 32)">
+                        <div :class="pairImg[32]" v-show="h32"></div>
+                        <div class="successfuly" v-show="s32"> </div>
+                    </div>
+                    <div class="r6c4" @click="openCard($event, 33)">
+                        <div :class="pairImg[33]" v-show="h33"></div>
+                        <div class="successfuly" v-show="s33"> </div>
+                    </div>
+                    <div class="r6c5" @click="openCard($event, 34)">
+                        <div :class="pairImg[34]" v-show="h34"></div>
+                        <div class="successfuly" v-show="s34"> </div>
+                    </div>
+                    <div class="r6c6" @click="openCard($event, 35)">
+                        <div :class="pairImg[35]" v-show="h35"></div>
+                        <div class="successfuly" v-show="s35"> </div>
+                    </div>
+                </template>
+
+            </div>
+        </div>
+        <div class="inl">
+            <table>
+                <caption>Рейтинг игроков</caption>
+                <thead>
+                    <tr>
+                        <th>Имя игорока</th>
+                        <th>Затраченное время</th>
+                        <th>Дата игры</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr v-for="player in raitings">
+                        <td>{{player.player}}</td>
+                        <td>{{player.time}}</td>
+                        <td>{{player.date}}</td>
+                    </tr>
+                    <tr v-if="raitings.length==0">
+                        <td colspan="3" style="text-align: center;">Записи появятся после начала игры</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+
+    </div>
+</body>
+
+</html>
+<script src="./lib/vue.js"></script>
+<script src="./src/index.js"></script>
+
+<script type="text/x-template" id="modal-template">
+    <transition name="modal">
+        <div class="modal-mask">
+            <div class="modal-wrapper">
+                <div class="modal-container">
+
+                    <div class="modal-header">
+                        <slot name="header">
+                            default header
+                        </slot>
+                    </div>
+
+                    <div class="modal-body">
+                        <slot name="body">
+                            default body
+                        </slot>
+                    </div>
+
+                    <div class="modal-footer">
+                        <slot name="footer">
+                            default footer
+                            <button class="modal-default-button" @click="$emit('close')">
+                  OK
+                </button>
+                        </slot>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </transition>
+</script>
