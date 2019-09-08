@@ -121,7 +121,7 @@ const app = new Vue({
         saveTime() {
             if (this.countPair == 18) {
                 let nowDate = new Date();
-                nowDate = nowDate.getHours() + ':' + nowDate.getMinutes() + nowDate.getSeconds();
+                nowDate = nowDate.getHours() + ':' + nowDate.getMinutes() +':' + nowDate.getSeconds();
                 this.raitings.push({
                     game: this.countGame,
                     time: this.hours + ':' + this.minutes + ':' + this.seconds,
